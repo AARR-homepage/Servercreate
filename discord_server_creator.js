@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         name,
                         icon: icon || null,
                         guild_template_code: template,
-                        system_channel_id: systemChannelId,
+                        system_channel_id: null,
                         channels,
                     }),
                 });
