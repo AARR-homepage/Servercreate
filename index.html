@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord サーバー作成ツール</title>
+    <script src="discord_server_creator.js" defer></script>
+</head>
+<body>
+    <h1>Discord サーバー作成ツール</h1>
+    <form id="serverForm">
+        <label for="token">トークン:</label><br>
+        <input type="text" id="token" name="token" required><br><br>
+
+        <label for="name">サーバー名:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="icon">アイコンURL:</label><br>
+        <input type="url" id="icon" name="icon"><br><br>
+
+        <label for="template">テンプレートコード:</label><br>
+        <input type="text" id="template" name="template" required><br><br>
+
+        <label for="count">作成数:</label><br>
+        <input type="number" id="count" name="count" value="1" min="1" required><br><br>
+
+        <label for="delay">遅延 (ms):</label><br>
+        <input type="number" id="delay" name="delay" value="1000" min="0" required><br><br>
+
+        <button type="submit">サーバーを作成</button>
+    </form>
+
+    <div id="output"></div>
+</body>
+</html>
