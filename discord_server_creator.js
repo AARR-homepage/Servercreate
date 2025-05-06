@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('serverForm');
-    const fields = ['token', 'name', 'icon', 'template', 'count', 'delay'];
+    const fields = ['token', 'name', 'icon', 'template', 'count', 'delay', 'system_channel_id', 'channels'];
 
-
+   
     fields.forEach(field => {
         const savedValue = localStorage.getItem(field);
         if (savedValue) {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
- 
+  
     fields.forEach(field => {
         const input = document.getElementById(field);
         input.addEventListener('input', () => {
@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const template = document.getElementById('template').value;
         const count = parseInt(document.getElementById('count').value, 10);
         const delay = parseInt(document.getElementById('delay').value, 10);
+        const systemChannelId = document.getElementById('system_channel_id').value || null;
+        const channels = document.getElementById('channels').value ? JSON.parse(document.getElementById('channels').value) : [];
 
         const output = document.getElementById('output');
         output.innerHTML = '';
@@ -36,13 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch(`https://discord.com/api/v9/guilds`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `${token}`,
+                        'Authorization': `Bot ${token}`,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         name,
                         icon: icon || null,
                         guild_template_code: template,
+                        system_channel_id: systemChannelId,
+                        channels,
                     }),
                 });
 
