@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('serverForm');
     const fields = ['token', 'name', 'icon', 'template', 'count', 'delay', 'system_channel_id', 'channels'];
 
-   
+  
     fields.forEach(field => {
         const savedValue = localStorage.getItem(field);
         if (savedValue) {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-  
+    
     fields.forEach(field => {
         const input = document.getElementById(field);
         input.addEventListener('input', () => {
@@ -28,7 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const count = parseInt(document.getElementById('count').value, 10);
         const delay = parseInt(document.getElementById('delay').value, 10);
         const systemChannelId = document.getElementById('system_channel_id').value || null;
-        const channels = document.getElementById('channels').value ? JSON.parse(document.getElementById('channels').value) : [];
+        const channelsInput = document.getElementById('channels').value;
+        let channels = [];
+
+       
+        if (channelsInput) {
+            try {
+                channels = JSON.parse(channelsInput);
+                if (!Array.isArray(channels)) {
+                    throw new Error("チャンネル情報は配列形式である必要があります。");
+                }
+            } catch (error) {
+                alert(`チャンネル情報が不正です: ${error.message}`);
+                return;
+            }
+        }
 
         const output = document.getElementById('output');
         output.innerHTML = '';
