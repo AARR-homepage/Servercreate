@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('serverForm');
     const fields = ['token', 'name', 'icon', 'template', 'count', 'delay'];
 
-    // 保存された値をローカルストレージから読み込む
+
     fields.forEach(field => {
         const savedValue = localStorage.getItem(field);
         if (savedValue) {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 入力内容が変更されたらローカルストレージに保存
+ 
     fields.forEach(field => {
         const input = document.getElementById(field);
         input.addEventListener('input', () => {
