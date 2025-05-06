@@ -4,32 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discord サーバー作成ツール</title>
+    <link rel="stylesheet" href="discord_server_creator.css">
     <script src="discord_server_creator.js" defer></script>
 </head>
 <body>
-    <h1>Discord サーバー作成ツール</h1>
-    <form id="serverForm">
-        <label for="token">トークン:</label><br>
-        <input type="text" id="token" name="token" required><br><br>
+    <div class="container">
+        <h1>Discord サーバー作成ツール</h1>
+        <form id="serverForm">
+            <label for="token">トークン:</label>
+            <input type="text" id="token" name="token" placeholder="Botトークンを入力" required>
 
-        <label for="name">サーバー名:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+            <label for="name">サーバー名:</label>
+            <input type="text" id="name" name="name" placeholder="サーバー名を入力" required>
 
-        <label for="icon">アイコンURL:</label><br>
-        <input type="url" id="icon" name="icon"><br><br>
+            <label for="icon">アイコンURL:</label>
+            <input type="url" id="icon" name="icon" placeholder="アイコンのURLを入力">
 
-        <label for="template">テンプレートコード:</label><br>
-        <input type="text" id="template" name="template" required><br><br>
+            <label for="template">テンプレートコード:</label>
+            <input type="text" id="template" name="template" placeholder="テンプレートコードを入力" required>
 
-        <label for="count">作成数:</label><br>
-        <input type="number" id="count" name="count" value="1" min="1" required><br><br>
+            <label for="count">作成数:</label>
+            <input type="number" id="count" name="count" value="1" min="1" required>
 
-        <label for="delay">遅延 (ms):</label><br>
-        <input type="number" id="delay" name="delay" value="1000" min="0" required><br><br>
+            <label for="delay">遅延 (ms):</label>
+            <input type="number" id="delay" name="delay" value="1000" min="0" required>
 
-        <button type="submit">サーバーを作成</button>
-    </form>
-
-    <div id="output"></div>
+            <button type="submit">サーバーを作成</button>
+        </form>
+        <div id="output"></div>
+    </div>
 </body>
 </html>
