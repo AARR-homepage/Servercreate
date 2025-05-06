@@ -16,7 +16,7 @@ document.getElementById('serverForm').addEventListener('submit', async function 
             const response = await fetch(`https://discord.com/api/v9/guilds`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bot ${token}`,
+                    'Authorization': `${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
