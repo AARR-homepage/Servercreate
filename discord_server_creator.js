@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                
                 const payload = {
                     name,
-                    icon: icon || null,
+                    icon: icon ,
                     system_channel_id: systemChannelId,
                     channels,
                 };
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch(`https://discord.com/api/v9/guilds`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Authorization': token,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(payload),
